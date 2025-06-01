@@ -1,0 +1,279 @@
+.todo-container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.todo-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.logout-btn {
+	padding: 8px 16px;
+	background-color: #dc3545;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.logout-btn:hover {
+	background-color: #c82333;
+}
+
+.todo-form {
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+}
+
+.todo-form input,
+.todo-form textarea,
+.todo-form select {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+.todo-form textarea {
+	min-height: 100px;
+	resize: vertical;
+}
+
+.todo-form button {
+	width: 100%;
+	padding: 10px;
+	background-color: #28a745;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.todo-form button:hover {
+	background-color: #218838;
+}
+
+.filter-container {
+	margin-bottom: 20px;
+}
+
+.filter-container select {
+	width: 200px;
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+.todos-list {
+	display: grid;
+	gap: 20px;
+}
+
+.todo-item {
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	animation: slideIn 0.3s ease-out;
+	border-left: 4px solid #ddd;
+}
+
+.todo-item.pending {
+	border-left-color: #ffc107;
+}
+
+.todo-item.in_progress {
+	border-left-color: #17a2b8;
+}
+
+.todo-item.completed {
+	border-left-color: #28a745;
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideOut {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+}
+
+.todo-item.deleting {
+	animation: slideOut 0.3s ease-out forwards;
+}
+
+.todo-content {
+	flex: 1;
+	margin-right: 20px;
+}
+
+.todo-content h3 {
+	margin-bottom: 10px;
+	color: #333;
+	word-break: break-word;
+}
+
+.todo-content p {
+	color: #666;
+	margin-bottom: 10px;
+	word-break: break-word;
+}
+
+.todo-content input,
+.todo-content textarea {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+.todo-content textarea {
+	min-height: 100px;
+	resize: vertical;
+}
+
+.todo-dates {
+	display: flex;
+	gap: 20px;
+	color: #999;
+	font-size: 14px;
+}
+
+.todo-actions {
+	display: flex;
+	gap: 10px;
+	align-items: flex-start;
+}
+
+.todo-actions select {
+	padding: 6px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background-color: white;
+}
+
+.todo-actions select.pending {
+	color: #ffc107;
+}
+
+.todo-actions select.in_progress {
+	color: #17a2b8;
+}
+
+.todo-actions select.completed {
+	color: #28a745;
+}
+
+.todo-actions button {
+	padding: 6px 12px;
+	background-color: #dc3545;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.todo-actions button:hover {
+	background-color: #c82333;
+}
+
+.edit-button {
+	background-color: #6c757d !important;
+}
+
+.edit-button:hover {
+	background-color: #5a6268 !important;
+}
+
+@keyframes celebrate {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes confetti {
+	0% {
+		transform: translateY(0) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(100px) rotate(360deg);
+		opacity: 0;
+	}
+}
+
+.celebration {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 1000;
+}
+
+.confetti {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: #f00;
+	animation: confetti 1s ease-out forwards;
+}
+
+.confetti:nth-child(2n) {
+	background-color: #0f0;
+}
+
+.confetti:nth-child(3n) {
+	background-color: #00f;
+}
+
+.confetti:nth-child(4n) {
+	background-color: #ff0;
+}
+
+.confetti:nth-child(5n) {
+	background-color: #f0f;
+}
+
+.todo-item.completed {
+	border-left-color: #28a745;
+	animation: celebrate 0.5s ease-out;
+}
